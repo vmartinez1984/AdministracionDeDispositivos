@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Administracion.BusinessLayer.Dto.DispositivoItem>
+
+@{
+    ViewBag.Title = "Lista de dispositivos";
+}
+
+<div class="container-fluid">
+
+    <h2>Lista de dispositivos</h2>
+
+    <p>
+        @Html.ActionLink("Agregar dispositivo", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDeDispositivoNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgenciaNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroDeSerie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentarios)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoDeDispositivoNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgenciaNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroDeSerie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comentarios)
+                </td>
+                <td>
+                    <a href="~/Dispositivo/Edit/@item.Id" class="btn btn-warning">
+                        <i class="fas fa-edit text-white"></i>
+                    </a>
+                    <a href="~/Dispositivo/Details/@item.Id" class="btn btn-info">
+                        <i class="fas fa-list text-white"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{416118D9-7AFD-48AD-BEF5-B1D6B655D784}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Administracion.BusinessLayer</RootNamespace>
+    <AssemblyName>Administracion.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bl\AgenciaBl.cs" />
+    <Compile Include="Bl\ArchivoDeDispositivoBl.cs" />
+    <Compile Include="Bl\DispositivoBl.cs" />
+    <Compile Include="Bl\EstatusDelDispositivoBl.cs" />
+    <Compile Include="Bl\UsuarioBl.cs" />
+    <Compile Include="Bl\TipoDeDispositivoBl.cs" />
+    <Compile Include="Bl\TipoDeAgenciaBl.cs" />
+    <Compile Include="Bl\PerfilBl.cs" />
+    <Compile Include="Bl\EstadoBl.cs" />
+    <Compile Include="Bl\ProyectoBl.cs" />
+    <Compile Include="Dto\Agencia.cs" />
+    <Compile Include="Dto\AgenciaBitacora.cs" />
+    <Compile Include="Dto\AgenciaDetalle.cs" />
+    <Compile Include="Dto\AgenciaItem.cs" />
+    <Compile Include="Dto\ArchivoDeDispositivo.cs" />
+    <Compile Include="Dto\CatalogoDto.cs" />
+    <Compile Include="Dto\Dispositivo.cs" />
+    <Compile Include="Dto\DispositivoBitacora.cs" />
+    <Compile Include="Dto\DispositivoBusqueda.cs" />
+    <Compile Include="Dto\DispositivoDetalle.cs" />
+    <Compile Include="Dto\DispositivoItem.cs" />
+    <Compile Include="Dto\Estado.cs" />
+    <Compile Include="Dto\EstatusDelDispositivo.cs" />
+    <Compile Include="Dto\Perfil.cs" />
+    <Compile Include="Dto\Proyecto.cs" />
+    <Compile Include="Dto\TipoDeAgencia.cs" />
+    <Compile Include="Dto\TipoDeDispositivo.cs" />
+    <Compile Include="Dto\Usuario.cs" />
+    <Compile Include="Dto\UsuarioInicioDeSesion.cs" />
+    <Compile Include="Dto\UsuarioItem.cs" />
+    <Compile Include="Mapper\AgenciaMapper.cs" />
+    <Compile Include="Mapper\DispositivoMapper.cs" />
+    <Compile Include="Mapper\EstadoMapper.cs" />
+    <Compile Include="Mapper\EstatusDelDsipositivoMapper.cs" />
+    <Compile Include="Mapper\PerfilMapper.cs" />
+    <Compile Include="Mapper\ProyectoMapper.cs" />
+    <Compile Include="Mapper\TipoDeAgenciaMappers.cs" />
+    <Compile Include="Mapper\TipoDeDispositivoMapper.cs" />
+    <Compile Include="Mapper\UsuarioMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Administracion.DataAccessObject\Administracion.DataAccessObject.csproj">
+      <Project>{723c2711-ee8c-470b-a30a-329fd814aba6}</Project>
+      <Name>Administracion.DataAccessObject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,175 @@
+﻿@model Administracion.BusinessLayer.Dto.AgenciaDetalle
+
+@{
+    ViewBag.Title = "Detales de la agencia";
+}
+
+
+<div class="container">
+    <h2>Detalles</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProyectoNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProyectoNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDeAgencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDeAgencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentarios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentarios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeEdicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeEdicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDeBaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDeBaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ListaDeBitacora)
+        </dt>
+
+        <dd>
+            <table class="table table-hover table-responsive">
+                <thead>
+
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProyectoNombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Clave)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TipoDeAgencia)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Ciudad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Comentarios)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaDeEdicion)
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model.ListaDeBitacora)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProyectoNombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Clave)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoDeAgencia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ciudad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comentarios)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaDeEdicion)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new {@class= "btn btn-warning text-white" }) |
+        @Html.ActionLink("Regresar a la lista", "Index")
+    </p>
+</div>
