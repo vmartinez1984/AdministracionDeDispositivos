@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Agencia y dispositivos";
+}
+<div class="container-fluid">
+
+    <h2>Buscar</h2>
+    @using (Html.BeginForm("ListaDeAgenciaYDispositivos", "Reporte", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            @Html.Label("ProyectoId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProyectoId", new SelectList(ViewBag.ListaDeProyectos, "Id", "Nombre"), "Seleccione", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buscar" class="btn btn-success" />
+            </div>
+        </div>
+    }
+</div>
+

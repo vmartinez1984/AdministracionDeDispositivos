@@ -124,6 +124,7 @@
     <Compile Include="Controllers\EstatusDelDispositivoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\TipoDeAgenciaController.cs" />
     <Compile Include="Controllers\TipoDeDispositivoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -146,6 +147,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\HeaderMainHuella.jpg" />
+    <Content Include="img\LoginCandado.jpg" />
     <Content Include="img\undraw_posting_photo.svg" />
     <Content Include="img\undraw_profile.svg" />
     <Content Include="img\undraw_profile_1.svg" />
@@ -2155,6 +2158,8 @@
     <Content Include="Views\Proyecto\Edit.cshtml" />
     <Content Include="Views\Dispositivo\Details.cshtml" />
     <Content Include="Views\Home\IniciarSesion.cshtml" />
+    <Content Include="Views\Reporte\ListaDeAgenciaYDispositivos.cshtml" />
+    <Content Include="Views\Reporte\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

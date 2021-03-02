@@ -12,6 +12,9 @@ namespace AdministracionMvc.Controllers
         // GET: Dispositivo
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<DispositivoItem> lista;
 
             lista = DispositivoBl.GetAll();
@@ -22,6 +25,8 @@ namespace AdministracionMvc.Controllers
         // GET: Dispositivo/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("Index");
 
@@ -35,6 +40,9 @@ namespace AdministracionMvc.Controllers
         // GET: Dispositivo/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             ViewBag.ListaDeEstatusDeDispositivo = EstatusDelDispositivoBl.GetAll();
             ViewBag.ListaDeTiposDeDispositivos = TipoDeDispositivoBl.GetAll();
             ViewBag.ListaDeProyectos = ProyectoBl.GetAll();
@@ -47,8 +55,13 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (ModelState.IsValid)
                 {
+                    if (Session["Usuario"] != null)
+                        item.UsuarioId = (Session["Usuario"] as Usuario).Id;
                     item.Id = DispositivoBl.Add(item);
 
                     AddFiles(item.Id, Archivos);
@@ -92,6 +105,8 @@ namespace AdministracionMvc.Controllers
         // GET: Dispositivo/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("Index");
             Dispositivo item;
@@ -136,28 +151,6 @@ namespace AdministracionMvc.Controllers
             }
         }
 
-        // GET: Dispositivo/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Dispositivo/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
         public ActionResult CargarExcel()
         {
             return View();
@@ -186,6 +179,9 @@ namespace AdministracionMvc.Controllers
 
         public ActionResult Buscar()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             ViewBag.ListaDeEstatusDeDispositivo = EstatusDelDispositivoBl.GetAll();
             ViewBag.ListaDeTiposDeDispositivos = TipoDeDispositivoBl.GetAll();
             ViewBag.ListaDeProyectos = ProyectoBl.GetAll();

@@ -1,9 +1,5 @@
 ﻿using Administracion.BusinessLayer.Bl;
 using Administracion.BusinessLayer.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AdministracionMvc.Controllers
@@ -12,6 +8,9 @@ namespace AdministracionMvc.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+               return RedirectToAction("Login", "Home");
+
             return View();
         }
 
@@ -35,10 +34,16 @@ namespace AdministracionMvc.Controllers
         public ActionResult Borders() { return View(); }
         public ActionResult Animations() { return View(); }
         public ActionResult Other() { return View(); }
-        public ActionResult Login() { return View(); }
+        public ActionResult Login()
+        {
+            Session["Usuario"] = null;
+
+            return View();
+        }
 
         [HttpPost]
-        public ActionResult Login(FormCollection formCollection) {
+        public ActionResult Login(FormCollection formCollection)
+        {
             Usuario usuario;
             string usuario_;
             string contrasenia;
@@ -49,7 +54,11 @@ namespace AdministracionMvc.Controllers
             if (usuario == null)
                 return View();
             else
-                return View("Index");
+            {
+                Session["Usuario"] = usuario;
+
+                return RedirectToAction("Index");
+            }
         }
         public ActionResult Register() { return View(); }
         public ActionResult ForgotPassword() { return View(); }

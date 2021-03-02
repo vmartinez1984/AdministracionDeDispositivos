@@ -99,7 +99,7 @@ namespace Administracion.BusinessLayer.Bl
             List<DispositivoItem> lista;
             List<DispositivoItemEntity> entities;
 
-            entities = DispositivoDao.GetAll(item.TipoDeDispositivoId, item.EstatusDelDispositivoId, item.ProyectoId, item.AgenciaId, item.NumeroDeSerie, item.Licencia);
+            entities = DispositivoDao.GetAll(item.TipoDeDispositivoId, item.EstatusDelDispositivoId, item.ProyectoId, item.AgenciaId, item.NumeroDeSerie);
             lista = DispositivoMapper.GetAll(entities);
 
             return lista;

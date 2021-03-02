@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataAccesObject\AgenciaDao.cs" />
+    <Compile Include="DataAccesObject\AgenciaYDsipositivoDao.cs" />
     <Compile Include="DataAccesObject\ArchivoDelDispositivoDao.cs" />
     <Compile Include="DataAccesObject\Campos.cs" />
     <Compile Include="DataAccesObject\Conexion.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Entities\AgenciaDetailsEntity.cs" />
     <Compile Include="Entities\AgenciaEntity.cs" />
     <Compile Include="Entities\AgenciaItemEntity.cs" />
+    <Compile Include="Entities\AgenciaYDispositivoEntity.cs" />
     <Compile Include="Entities\ArchivoDelDispositivoEntity.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\BaseFechaBajaYEdicionEntity.cs" />

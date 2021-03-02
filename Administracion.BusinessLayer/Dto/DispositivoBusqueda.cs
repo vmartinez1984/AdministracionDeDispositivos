@@ -18,11 +18,6 @@ namespace Administracion.BusinessLayer.Dto
         [DisplayName("Número de serie")]
         public string NumeroDeSerie { get; set; }
 
-        [MaxLength(50)]
-        [DisplayName("Licencia")]
-        public string Licencia { get; set; }
-
-
         [DisplayName("Estatus del dispositivo")]
         public int? EstatusDelDispositivoId { get; set; }
     }

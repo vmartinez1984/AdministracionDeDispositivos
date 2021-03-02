@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace AdministracionMvc.Controllers
-{
+{    
     public class AgenciaController : Controller
     {
         // GET: Agencia
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             List<AgenciaItem> lista;
 
             lista = AgenciaBl.GetAll();
@@ -20,6 +22,8 @@ namespace AdministracionMvc.Controllers
         // GET: Agencia/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("index");
 
@@ -33,6 +37,8 @@ namespace AdministracionMvc.Controllers
         // GET: Agencia/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             ViewBag.ListaDeProyectos = ProyectoBl.GetAll();
             ViewBag.ListaDeEstados = EstadoBl.GetAll();
             ViewBag.ListaDeTiposDeAgencia = TipoDeAgenciaBl.GetAll();
@@ -46,8 +52,12 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
                 if (ModelState.IsValid)
                 {
+                    if (Session["Usuario"] != null)
+                        item.UsuarioId = (Session["Usuario"] as Usuario).Id;
                     AgenciaBl.Add(item);
 
                     return RedirectToAction("Index");

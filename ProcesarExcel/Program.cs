@@ -21,7 +21,7 @@ namespace ProcesarExcel
             rutaDelArchivo = @"C:\Users\vmartinez\Downloads\Numeros de serie AT9000 y CSD .xlsx";
             sLDocument = new SLDocument(rutaDelArchivo);
 
-            while (!string.IsNullOrEmpty( sLDocument.GetCellValueAsString(row,1)))
+            while (!string.IsNullOrEmpty(sLDocument.GetCellValueAsString(row, 1)))
             {
                 string claveDeLaAgencia;
                 string nombreDeLaAgencia;
@@ -33,7 +33,7 @@ namespace ProcesarExcel
 
                 claveDeLaAgencia = sLDocument.GetCellValueAsString(row, 1);
                 nombreDeLaAgencia = sLDocument.GetCellValueAsString(row, 2);
-                tipo = sLDocument.GetCellValueAsString(row,3);
+                tipo = sLDocument.GetCellValueAsString(row, 3);
                 ciudad = sLDocument.GetCellValueAsString(row, 4);
                 numeroDeSerieDeAt9000 = sLDocument.GetCellValueAsString(row, 5);
                 numeroDeSerieDecsd200 = sLDocument.GetCellValueAsString(row, 6);
@@ -43,7 +43,8 @@ namespace ProcesarExcel
                     Clave = claveDeLaAgencia,
                     Nombre = nombreDeLaAgencia,
                     TipoDeAgenciaId = GetTipoDeAgenciaId(tipo),
-                    ProyectoId = 3
+                    ProyectoId = 3,
+                    UsuarioId = 1
                 };
                 entity.Id = AgenciaDao.Add(entity);
                 AddAT90000(entity.Id, numeroDeSerieDeAt9000);
@@ -63,7 +64,8 @@ namespace ProcesarExcel
                 AgenciaId = agenciaId,
                 NumeroDeSerie = numeroDeSerieDeAt9000,
                 TipoDeDispositivoId = 1,
-                EstatusDelDispositivoId = 2
+                EstatusDelDispositivoId = 2,
+                UsuarioId = 1
             };
             DispositivoDao.Add(entity);
         }
@@ -77,7 +79,8 @@ namespace ProcesarExcel
                 AgenciaId = agenciaId,
                 NumeroDeSerie = numeroDeSerieDeAt9000,
                 TipoDeDispositivoId = 2,
-                EstatusDelDispositivoId = 2
+                EstatusDelDispositivoId = 2,
+                UsuarioId = 1
             };
             DispositivoDao.Add(entity);
         }
@@ -90,7 +93,7 @@ namespace ProcesarExcel
 
             entities = TipoDeAgenciaDao.GetAll();
             entity = entities.Where(x => x.Nombre.ToUpper().Contains(tipo.ToUpper())).FirstOrDefault();
-            if(entity != null)
+            if (entity != null)
             {
                 tipoDeAgenciaId = entity.Id;
             }

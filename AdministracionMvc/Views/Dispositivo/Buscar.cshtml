@@ -15,14 +15,16 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                @Html.LabelFor(model => model.TipoDeDispositivoId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.TipoDeDispositivoId, new SelectList(ViewBag.ListaDeTiposDeDispositivos, "Id", "Nombre"), "Todos", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.TipoDeDispositivoId, "", new { @class = "text-danger" })
+                <div class="row">
+                    @Html.LabelFor(model => model.TipoDeDispositivoId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.TipoDeDispositivoId, new SelectList(ViewBag.ListaDeTiposDeDispositivos, "Id", "Nombre"), "Todos", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TipoDeDispositivoId, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 @Html.LabelFor(model => model.EstatusDelDispositivoId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownListFor(model => model.EstatusDelDispositivoId, new SelectList(ViewBag.ListaDeEstatusDeDispositivo, "Id", "Nombre"), "Todos", new { @class = "form-control" })
@@ -30,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 @Html.Label("ProyectoId", "Proyecto", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("ProyectoId", new SelectList(ViewBag.ListaDeProyectos, "Id", "Nombre"), "Todos", new { @class = "form-control", onchange = "cargarAgencias();" })
@@ -38,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 @Html.LabelFor(model => model.AgenciaId, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <select id="AgenciaId" name="AgenciaId" class="form-control">
@@ -47,13 +49,13 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 @Html.LabelFor(model => model.NumeroDeSerie, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.NumeroDeSerie, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.NumeroDeSerie, "", new { @class = "text-danger" })
                 </div>
-            </div>         
+            </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
@@ -71,22 +73,28 @@
     <script>
         function cargarAgencias() {
             var proyectoId;
+            var select;
+
+            select = document.getElementById("AgenciaId");
+            select.innerHTML = "";
 
             proyectoId = document.getElementById("ProyectoId").value;
             console.log(proyectoId);
             $.ajax({
                 url: "../Agencia/GetAll?ProyectoId=" + proyectoId,
                 success: function (data) {
-                    var select;
-
-                    select = document.getElementById("AgenciaId");
-                    for (var item of data) {
-                        var option;
-
+                    if (data.length > 0) {
                         option = document.createElement("option");
-                        option.value = item.Id;
-                        option.innerHTML = item.Clave + " " + item.Nombre;
+                        option.innerHTML = "Seleccione";
                         select.appendChild(option);
+                        for (var item of data) {
+                            var option;
+
+                            option = document.createElement("option");
+                            option.value = item.Id;
+                            option.innerHTML = item.Clave + " " + item.Nombre;
+                            select.appendChild(option);
+                        }
                     }
                 }
             });

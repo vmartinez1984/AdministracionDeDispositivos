@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bl\AgenciaBl.cs" />
+    <Compile Include="Bl\AgenciaYDispositivosBl.cs" />
     <Compile Include="Bl\ArchivoDeDispositivoBl.cs" />
     <Compile Include="Bl\DispositivoBl.cs" />
     <Compile Include="Bl\EstatusDelDispositivoBl.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Dto\AgenciaBitacora.cs" />
     <Compile Include="Dto\AgenciaDetalle.cs" />
     <Compile Include="Dto\AgenciaItem.cs" />
+    <Compile Include="Dto\AgenciaYDispositivos.cs" />
     <Compile Include="Dto\ArchivoDeDispositivo.cs" />
     <Compile Include="Dto\CatalogoDto.cs" />
     <Compile Include="Dto\Dispositivo.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Dto\UsuarioInicioDeSesion.cs" />
     <Compile Include="Dto\UsuarioItem.cs" />
     <Compile Include="Mapper\AgenciaMapper.cs" />
+    <Compile Include="Mapper\AgenciaYDispositivosMapper.cs" />
     <Compile Include="Mapper\DispositivoMapper.cs" />
     <Compile Include="Mapper\EstadoMapper.cs" />
     <Compile Include="Mapper\EstatusDelDsipositivoMapper.cs" />

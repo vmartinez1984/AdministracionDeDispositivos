@@ -46,7 +46,7 @@ namespace Administracion.DataAccessObject.DataAccesObject
             }
         }
 
-        public static List<DispositivoItemEntity> GetAll(int? tipoDeDispositivoId, int? estatusDelDispositivoId, int? proyectoId, int? agenciaId, string numeroDeSerie, string licencia)
+        public static List<DispositivoItemEntity> GetAll(int? tipoDeDispositivoId, int? estatusDelDispositivoId, int? proyectoId, int? agenciaId, string numeroDeSerie)
         {
             try
             {
@@ -71,12 +71,26 @@ namespace Administracion.DataAccessObject.DataAccesObject
                 {
                     query += $" WHERE tipo_de_dispositivo_id = {tipoDeDispositivoId} ";
                 }
+                if (estatusDelDispositivoId != null)
+                {
+                    if (query.Contains("WHERE"))
+                        query += $" AND estatus_del_dispositivo.id = {estatusDelDispositivoId} ";
+                    else
+                        query += $" WHERE estatus_del_dispositivo.id = {estatusDelDispositivoId} ";
+                }
                 if (proyectoId != null)
                 {
                     if (query.Contains("WHERE"))
                         query += $" AND agencia.proyecto_id = {proyectoId} ";
                     else
                         query += $" WHERE agencia.proyecto_id = {proyectoId} ";
+                }
+                if (agenciaId != null)
+                {
+                    if (query.Contains("WHERE"))
+                        query += $" AND agencia.id = {agenciaId} ";
+                    else
+                        query += $" WHERE agencia.id = {agenciaId} ";
                 }
                 if (!string.IsNullOrEmpty(numeroDeSerie))
                 {
@@ -155,7 +169,8 @@ namespace Administracion.DataAccessObject.DataAccesObject
                     comentarios,
                     is_activo,
                     fecha_de_registro,
-                    estatus_del_dispositivo_id
+                    estatus_del_dispositivo_id,
+                    usuario_id
                 ) 
                 VALUES 
                 (
@@ -165,7 +180,8 @@ namespace Administracion.DataAccessObject.DataAccesObject
                     @Comentarios,
                     1,
                     NOW(),
-                    @EstatusDelDispositivoId
+                    @EstatusDelDispositivoId,
+                    @UsuarioId
                 ); SELECT LAST_INSERT_ID();";
                 using (var db = new MySqlConnection(Conexion.CadenaDeConexion))
                 {
@@ -175,7 +191,8 @@ namespace Administracion.DataAccessObject.DataAccesObject
                         TipoDeDispositivoId = entity.TipoDeDispositivoId,
                         NumeroDeSerie = entity.NumeroDeSerie,
                         Comentarios = entity.Comentarios,
-                        EstatusDelDispositivoId = entity.EstatusDelDispositivoId
+                        EstatusDelDispositivoId = entity.EstatusDelDispositivoId,
+                        UsuarioId = entity.UsuarioId
                     }).FirstOrDefault();
                 }
 

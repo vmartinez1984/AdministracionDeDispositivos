@@ -87,10 +87,11 @@ namespace Administracion.DataAccessObject.DataAccesObject
                 query = $@"
                 SELECT
                     id,
-                    perfil_id,
+                    perfil_id           PerfilId,
                     nombre,
                     contrasenia,
-                    fecha_de_registro
+                    fecha_de_registro   FechaDeRegistro,
+                    nombre_de_usuario   NombreDeUsuario
                 FROM   usuario   
                 WHERE nombre_de_usuario = @Nombre AND contrasenia = @Contrasenia
                 LIMIT 1

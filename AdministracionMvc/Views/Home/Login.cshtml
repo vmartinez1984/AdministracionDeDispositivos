@@ -51,7 +51,7 @@
                                         <br />
                                         <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                                     </div>
-                                    @using (Html.BeginForm())
+                                    @using (Html.BeginForm("Login","Home"))
                                     {
                                         @Html.AntiForgeryToken()
                                         <div class="form-group">
