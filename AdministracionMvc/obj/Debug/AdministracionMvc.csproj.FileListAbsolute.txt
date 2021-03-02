@@ -99,3 +99,8 @@ C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\b
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\System.Numerics.Vectors.xml
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\Administracion.BusinessLayer.dll.config
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\SpreadsheetLight.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\DocumentFormat.OpenXml.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\System.Drawing.Common.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\SpreadsheetLight.xml
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\AdministracionMvc\bin\DocumentFormat.OpenXml.xml

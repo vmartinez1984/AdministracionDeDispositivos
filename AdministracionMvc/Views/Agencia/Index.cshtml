@@ -11,70 +11,137 @@
     <p>
         @Html.ActionLink("Agregar nuevo", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProyectoNombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Clave)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoDeAgencia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ciudad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Comentarios)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProyectoNombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Clave)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipoDeAgencia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ciudad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Estado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comentarios)
-                </td>
-                <td>
-                    <a href="~/Agencia/Edit/@item.Id" class="btn btn-warning">
-                        <i class="fas fa-edit text-white"></i>
-                    </a>
-                    <a href="~/Agencia/Details/@item.Id" class="btn btn-info">
-                        <i class="fas fa-list text-white"></i>
-                    </a>
-                    <a href="~/Agencia/Delete/@item.Id" class="btn btn-danger">
-                        <i class="fas fa-trash text-white"></i>
-                    </a>
-                </td>
-            </tr>
-        }
-
-    </table>
-
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="TablaDeAgencias" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProyectoNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Clave)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoDeAgencia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ciudad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProyectoNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Clave)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoDeAgencia)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ciudad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProyectoNombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Clave)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoDeAgencia)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ciudad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Estado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                </td>
+                                <td>
+                                    <a href="~/Agencia/Edit/@item.Id" class="btn btn-warning">
+                                        <i class="fas fa-edit text-white"></i>
+                                    </a>
+                                    <a href="~/Agencia/Details/@item.Id" class="btn btn-info">
+                                        <i class="fas fa-list text-white"></i>
+                                    </a>
+                                    <a href="~/Agencia/Delete/@item.Id" class="btn btn-danger">
+                                        <i class="fas fa-trash text-white"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#TablaDeAgencias').DataTable({
+                lengthChange: true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Registro(s) no encontrado(s)",
+                    "info": "Página _PAGE_ de _PAGES_, _TOTAL_ elementos",
+                    "infoEmpty": "Registros no disponibles",
+                    "infoFiltered": "(de _MAX_ elementos en total)",
+                    "search": "Buscar",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                    aria: {
+                        paginate: {
+                            previous: 'Anterior',
+                            next: 'Siguiente'
+                        }
+                    }
+                },
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]]
+            });
+
+            error = $("#error").val();
+            if (error.length > 1) {
+                notie.alert({ type: 3, text: error, time: 4 })
+            }
+            $("#NombreUsuario").focus();
+        });
+    </script>
+}

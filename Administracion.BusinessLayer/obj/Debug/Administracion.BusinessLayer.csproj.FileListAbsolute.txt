@@ -39,3 +39,10 @@ C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.Busi
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\Administracion.BusinessLayer.dll.config
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\SpreadsheetLight.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\System.Drawing.Common.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\System.IO.Packaging.dll
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\SpreadsheetLight.xml
+C:\Users\vmartinez\source\repos\AdministracionDeDispositivos\Administracion.BusinessLayer\bin\Debug\System.IO.Packaging.xml

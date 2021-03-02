@@ -6,58 +6,119 @@
 
 <div class="container-fluid">
 
-    <h2>Lista de dispositivos</h2>
+    <h2 class="text-info">Lista de dispositivos</h2>
 
     <p>
         @Html.ActionLink("Agregar dispositivo", "Create")
+        <a href="~/Dispositivo/Buscar" class="btn btn-info">
+            <i class="fas fa-search text-white"></i>
+            Buscas dispositivo
+        </a>
     </p>
-    <a href="~/Dispositivo/Buscar" class="btn btn-info">
-        <i class="fas fa-search text-white"></i>
-        Buscas dispositivo
-    </a>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoDeDispositivoNombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AgenciaNombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumeroDeSerie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Comentarios)
-            </th>
-            <th></th>
-        </tr>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="TablaDeDispositivos" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoDeDispositivoNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AgenciaNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumeroDeSerie)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoDeDispositivoNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AgenciaNombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumeroDeSerie)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TipoDeDispositivoNombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AgenciaNombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumeroDeSerie)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comentarios)
-                </td>
-                <td>
-                    <a href="~/Dispositivo/Edit/@item.Id" class="btn btn-warning">
-                        <i class="fas fa-edit text-white"></i>
-                    </a>
-                    <a href="~/Dispositivo/Details/@item.Id" class="btn btn-info">
-                        <i class="fas fa-list text-white"></i>
-                    </a>
-                </td>
-            </tr>
-        }
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoDeDispositivoNombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AgenciaNombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumeroDeSerie)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                </td>
+                                <td>
+                                    <a href="~/Dispositivo/Edit/@item.Id" class="btn btn-warning">
+                                        <i class="fas fa-edit text-white"></i>
+                                    </a>
+                                    <a href="~/Dispositivo/Details/@item.Id" class="btn btn-info">
+                                        <i class="fas fa-list text-white"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
 
-    </table>
+                </table>
 
+            </div>
+        </div>
+    </div>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#TablaDeDispositivos').DataTable({
+                lengthChange: true,
+                "language": {
+                    "lengthMenu": "Mostrando _MENU_ registros por página",
+                    "zeroRecords": "Registro(s) no encontrado(s)",
+                    "info": "Página _PAGE_ de _PAGES_, _TOTAL_ elementos",
+                    "infoEmpty": "Registros no disponibles",
+                    "infoFiltered": "(de _MAX_ elementos en total)",
+                    "search": "Buscar",
+                    paginate: {
+                        previous: '‹',
+                        next: '›'
+                    },
+                    aria: {
+                        paginate: {
+                            previous: 'Anterior',
+                            next: 'Siguiente'
+                        }
+                    }
+                },
+                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]]
+            });
+
+            error = $("#error").val();
+            if (error.length > 1) {
+                notie.alert({ type: 3, text: error, time: 4 })
+            }
+            $("#NombreUsuario").focus();
+        });
+    </script>
+}

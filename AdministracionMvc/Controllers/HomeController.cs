@@ -11,6 +11,8 @@ namespace AdministracionMvc.Controllers
             if (Session["Usuario"] == null)
                return RedirectToAction("Login", "Home");
 
+            ViewBag.ListaDeTotalDeDispositivos = TotalDeDispositivosBl.GetAll();
+
             return View();
         }
 
@@ -52,7 +54,10 @@ namespace AdministracionMvc.Controllers
             contrasenia = formCollection["Contrasenia"];
             usuario = UsuarioBl.Get(usuario_, contrasenia);
             if (usuario == null)
+            {
+                ViewBag.Error = "Usuario y/o contraseña incorrecto(s)";
                 return View();
+            }
             else
             {
                 Session["Usuario"] = usuario;

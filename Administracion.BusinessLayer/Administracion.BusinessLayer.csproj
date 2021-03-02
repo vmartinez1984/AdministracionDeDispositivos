@@ -34,18 +34,37 @@
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.5.0.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpreadsheetLight.3.5.0\lib\netstandard2.0\SpreadsheetLight.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bl\AgenciaBl.cs" />
@@ -53,6 +72,7 @@
     <Compile Include="Bl\ArchivoDeDispositivoBl.cs" />
     <Compile Include="Bl\DispositivoBl.cs" />
     <Compile Include="Bl\EstatusDelDispositivoBl.cs" />
+    <Compile Include="Bl\TotalDeDispositivosBl.cs" />
     <Compile Include="Bl\UsuarioBl.cs" />
     <Compile Include="Bl\TipoDeDispositivoBl.cs" />
     <Compile Include="Bl\TipoDeAgenciaBl.cs" />
@@ -77,6 +97,7 @@
     <Compile Include="Dto\Proyecto.cs" />
     <Compile Include="Dto\TipoDeAgencia.cs" />
     <Compile Include="Dto\TipoDeDispositivo.cs" />
+    <Compile Include="Dto\TotalDeDispositivos.cs" />
     <Compile Include="Dto\Usuario.cs" />
     <Compile Include="Dto\UsuarioInicioDeSesion.cs" />
     <Compile Include="Dto\UsuarioItem.cs" />
@@ -89,6 +110,7 @@
     <Compile Include="Mapper\ProyectoMapper.cs" />
     <Compile Include="Mapper\TipoDeAgenciaMappers.cs" />
     <Compile Include="Mapper\TipoDeDispositivoMapper.cs" />
+    <Compile Include="Mapper\TotalDeDispositivosMapper.cs" />
     <Compile Include="Mapper\UsuarioMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

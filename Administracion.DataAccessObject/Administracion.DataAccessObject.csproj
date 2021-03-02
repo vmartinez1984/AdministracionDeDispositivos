@@ -119,6 +119,8 @@
     <Compile Include="Entities\ProyectoEntity.cs" />
     <Compile Include="Entities\TipoDeAgenciaEntity.cs" />
     <Compile Include="Entities\TipoDeDispositivoEntity.cs" />
+    <Compile Include="Entities\TotalDeDispositivosDao.cs" />
+    <Compile Include="Entities\TotalDeDispositivosEntity.cs" />
     <Compile Include="Entities\UsuarioEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
