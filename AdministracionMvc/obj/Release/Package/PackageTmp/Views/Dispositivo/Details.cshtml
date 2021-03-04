@@ -1,0 +1,125 @@
+﻿@model Administracion.BusinessLayer.Dto.DispositivoDetalle
+
+@{
+    ViewBag.Title = "Detalles del dispositivo";
+}
+
+<div class="container">
+    <h2>Detalle del dispositivo</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoDeDispositivo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoDeDispositivo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Agencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Agencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Proyecto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Proyecto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NumeroDeSerie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumeroDeSerie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comentarios)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comentarios)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaDeRegistro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaDeRegistro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EstatusDelDispositivo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EstatusDelDispositivo)
+            </dd>
+
+        </dl>
+
+        @if (Model.ListaDeBitacora.Count > 0)
+        {
+            <h3>Bítacora</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Proyecto </td>
+                        <td>Agencia</td>
+                        <td>Número de serie</td>
+                        <td>Comentarios</td>
+                        <td>Estatus</td>
+                        <td>Usuario</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ListaDeBitacora)
+                    {
+                        <tr>
+                            <td>@item.ProtectoNombre</td>
+                            <td>@item.AgenciaNombre</td>
+                            <td>@item.NumeroDeSerie</td>
+                            <td>@item.Comentarios</td>
+                            <td>@item.EstatusDelDispositivo</td>
+                            <td>@item.Usuario</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+        @if (Model.ListaDeArchivos.Count > 0)
+        {
+            <h3>Lista de archivos</h3>
+
+            foreach (var item in Model.ListaDeArchivos)
+            {
+                switch (item.TipoDeArchivo)
+                {
+                    case "pdf":
+                        <iframe class="embed-responsive" src="data:application/pdf;base64,@item.Base64" height="400"></iframe>
+                        break;
+                    case "JPEG":
+                    case "jpeg":
+                        <img src="data:image/jpeg;base64,@item.Base64" class="img-fluid" alt="Responsive image">
+                        break;
+                }
+            }
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning text-white" }) |
+        @Html.ActionLink("Regresar a la lista", "Index")
+    </p>
+</div>

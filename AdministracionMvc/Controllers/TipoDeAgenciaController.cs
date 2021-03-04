@@ -11,6 +11,9 @@ namespace AdministracionMvc.Controllers
         // GET: TipoDeAgencia
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<TipoDeAgencia> lista;
 
             lista = TipoDeAgenciaBl.GetAll();
@@ -21,6 +24,9 @@ namespace AdministracionMvc.Controllers
         // GET: TipoDeAgencia/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             return View();
         }
 
@@ -30,6 +36,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (ModelState.IsValid)
                 {
                     TipoDeAgenciaBl.Add(tipoDeAgencia);
@@ -52,6 +61,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (id == null)
                     return RedirectToAction("Index");
                 else
@@ -76,6 +88,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 TipoDeAgenciaBl.Update(item);
 
                 return RedirectToAction("Index");
@@ -91,6 +106,8 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
                 if (id == null)
                     return RedirectToAction("Index");
                 else
@@ -115,6 +132,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 TipoDeAgenciaBl.Delete(item.Id);
 
                 return RedirectToAction("Index");

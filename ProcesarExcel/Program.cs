@@ -13,12 +13,18 @@ namespace ProcesarExcel
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("procesar Excel");
+            Console.WriteLine("V1.0");
+            Console.WriteLine("Powered by Víctor Martinez");
+            Console.WriteLine("01/03/2021");
+            Console.WriteLine(DateTime.Now);
+
             string rutaDelArchivo;
             int row;
             SLDocument sLDocument;
 
             row = 2;
-            rutaDelArchivo = @"C:\Users\vmartinez\Downloads\Numeros de serie AT9000 y CSD .xlsx";
+            rutaDelArchivo = @"C:\Users\vmartinez\Downloads\ListaDeInformacionApp (1).xlsx";
             sLDocument = new SLDocument(rutaDelArchivo);
 
             while (!string.IsNullOrEmpty(sLDocument.GetCellValueAsString(row, 1)))
@@ -42,16 +48,18 @@ namespace ProcesarExcel
                     Ciudad = ciudad,
                     Clave = claveDeLaAgencia,
                     Nombre = nombreDeLaAgencia,
-                    TipoDeAgenciaId = GetTipoDeAgenciaId(tipo),
-                    ProyectoId = 3,
+                    TipoDeAgenciaId = 1,// GetTipoDeAgenciaId(tipo),
+                    ProyectoId = 1,
                     UsuarioId = 1
                 };
                 entity.Id = AgenciaDao.Add(entity);
                 AddAT90000(entity.Id, numeroDeSerieDeAt9000);
-                AddCs200(entity.Id, numeroDeSerieDecsd200);
+                //AddCs200(entity.Id, numeroDeSerieDecsd200);
                 Console.WriteLine($"{row} {entity.Clave} {numeroDeSerieDeAt9000} {numeroDeSerieDecsd200}");
                 row++;
             }
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine("Carga terminada, pulse enter para salir");
             Console.ReadLine();
         }
 

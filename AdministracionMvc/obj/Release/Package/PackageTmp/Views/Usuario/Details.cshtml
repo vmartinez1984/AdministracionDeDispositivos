@@ -1,0 +1,53 @@
+﻿@model Administracion.BusinessLayer.Dto.Usuario
+
+@{
+    ViewBag.Title = "Detalles de usuario";
+}
+<div class="container">
+    <h2>Detalles</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreDeUsuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreDeUsuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Contrasenia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contrasenia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PerfilId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PerfilId)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @if (Model.IsActivo)
+        {
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "btn btn-warning text-white" }) 
+        }
+        | @Html.ActionLink("Regresar a la lista", "Index")
+    </p>
+</div>

@@ -13,6 +13,9 @@ namespace AdministracionMvc.Controllers
         // GET: Proyecto
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<Proyecto> lista;
 
             lista = ProyectoBl.GetAll();
@@ -23,6 +26,9 @@ namespace AdministracionMvc.Controllers
         // GET: Proyecto/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             return View();
         }
 
@@ -32,6 +38,8 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
                 if (ModelState.IsValid)
                 {
                     ProyectoBl.Add(proyecto);
@@ -52,6 +60,8 @@ namespace AdministracionMvc.Controllers
         // GET: Proyecto/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("index");
 
@@ -64,33 +74,14 @@ namespace AdministracionMvc.Controllers
 
         // POST: Proyecto/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Proyecto proyecto)
         {
             try
             {
-                // TODO: Add update logic here
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Proyecto/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Proyecto/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
+                ProyectoBl.Update(proyecto);
 
                 return RedirectToAction("Index");
             }

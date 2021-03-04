@@ -10,6 +10,9 @@ namespace AdministracionMvc.Controllers
         // GET: EstatusDelDispositivo
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<EstatusDelDispositivo> lista;
 
             lista = EstatusDelDispositivoBl.GetAll();
@@ -20,6 +23,9 @@ namespace AdministracionMvc.Controllers
         // GET: EstatusDelDispositivo/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             return View();
         }
 
@@ -29,6 +35,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (ModelState.IsValid)
                 {
                     EstatusDelDispositivoBl.Add(item);
@@ -49,6 +58,9 @@ namespace AdministracionMvc.Controllers
         // GET: EstatusDelDispositivo/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             EstatusDelDispositivo item;
 
             item = EstatusDelDispositivoBl.Get(id);
@@ -60,6 +72,8 @@ namespace AdministracionMvc.Controllers
         [HttpPost]
         public ActionResult Edit(EstatusDelDispositivo item)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             try
             {
                 if (ModelState.IsValid)
@@ -82,6 +96,9 @@ namespace AdministracionMvc.Controllers
         // GET: EstatusDelDispositivo/Delete/5
         public ActionResult Delete(int id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             EstatusDelDispositivo item;
 
             item = EstatusDelDispositivoBl.Get(id);
@@ -93,6 +110,8 @@ namespace AdministracionMvc.Controllers
         [HttpPost]
         public ActionResult Delete(EstatusDelDispositivo item)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             try
             {
                 EstatusDelDispositivoBl.Delete(item.Id);

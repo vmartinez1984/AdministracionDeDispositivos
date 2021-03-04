@@ -10,6 +10,9 @@ namespace AdministracionMvc.Controllers
         // GET: TipoDeDispositivo
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<TipoDeDispositivo> lista;
 
             lista = TipoDeDispositivoBl.GetAll();
@@ -20,6 +23,9 @@ namespace AdministracionMvc.Controllers
         // GET: TipoDeDispositivo/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             return View();
         }
 
@@ -29,6 +35,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (ModelState.IsValid)
                 {
                     TipoDeDispositivoBl.Add(item);
@@ -49,6 +58,9 @@ namespace AdministracionMvc.Controllers
         // GET: TipoDeDispositivo/Edit/5
         public ActionResult Edit(int id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             TipoDeDispositivo item;
 
             item = TipoDeDispositivoBl.Get(id);
@@ -62,6 +74,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 if (ModelState.IsValid)
                 {
                     TipoDeDispositivoBl.Update(item);

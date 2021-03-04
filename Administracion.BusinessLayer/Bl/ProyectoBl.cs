@@ -55,24 +55,15 @@ namespace Administracion.BusinessLayer.Bl
             }
         }
 
-        public static void Edit(Proyecto proyecto)
+        public static void Update(Proyecto proyecto)
         {
             try
             {
+                ProyectoEntity entity;
 
-            }
-            catch (Exception)
-            {
+                entity = ProyectoMapper.Get(proyecto);
 
-                throw;
-            }
-        }
-
-        public static void Delete(int proyectoId)
-        {
-            try
-            {
-
+                ProyectoDao.Update(entity);
             }
             catch (Exception)
             {

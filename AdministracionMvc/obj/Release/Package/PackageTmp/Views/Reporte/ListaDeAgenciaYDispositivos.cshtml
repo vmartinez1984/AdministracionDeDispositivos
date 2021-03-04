@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Administracion.BusinessLayer.Dto.AgenciaYDispositivos>
+
+@{
+    ViewBag.Title = "Agencia y dispositivos";
+}
+
+<div class="container-fluid">    
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Lista de agencia y dispositivo</h1>
+        <a href="~/Reporte/Excel/@ViewBag.ProyectoId" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-file-excel fa-sm text-white-50"></i> Generar reporte
+        </a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AgenciaClave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgenciaNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgenciaTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispositivo1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispositivo2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispositivo3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispositivo4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dispositivo5)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgenciaClave)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgenciaNombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgenciaTipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ciudad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispositivo1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispositivo2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispositivo3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispositivo4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dispositivo5)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

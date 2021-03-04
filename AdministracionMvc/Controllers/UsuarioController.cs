@@ -10,6 +10,8 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             List<UsuarioItem> lista;
 
             lista = UsuarioBl.GetAll();
@@ -20,6 +22,9 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario
         public ActionResult Eliminados()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<UsuarioItem> lista;
 
             lista = UsuarioBl.GetAllEliminados();
@@ -30,6 +35,8 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("Index");
 
@@ -43,6 +50,8 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario/Create
         public ActionResult Create()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             ViewBag.ListaDePerfiles = PerfilBl.GetAll();
 
             return View();
@@ -54,6 +63,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+                
                 if (ModelState.IsValid)
                 {
                     UsuarioBl.Add(usuario);
@@ -75,6 +87,8 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
                 return RedirectToAction("Index");
 
@@ -92,6 +106,8 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
                 if (ModelState.IsValid)
                 {
                     UsuarioBl.Update(usuario);
@@ -114,6 +130,8 @@ namespace AdministracionMvc.Controllers
         // GET: Usuario/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             if (id == null)
              return   RedirectToAction("Index");
             Usuario usuario;
@@ -129,6 +147,9 @@ namespace AdministracionMvc.Controllers
         {
             try
             {
+                if (Session["Usuario"] == null)
+                    return RedirectToAction("Login", "Home");
+
                 UsuarioBl.Delete(id);
 
                 return RedirectToAction("Index");

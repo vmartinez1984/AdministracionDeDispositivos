@@ -14,6 +14,9 @@ namespace AdministracionMvc.Controllers
         // GET: Reporte
         public ActionResult Index()
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             ViewBag.ListaDeProyectos = ProyectoBl.GetAll();
 
             return View();
@@ -22,6 +25,9 @@ namespace AdministracionMvc.Controllers
         [HttpPost]
         public ActionResult ListaDeAgenciaYDispositivos(int ProyectoId)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<AgenciaYDispositivos> lista;
 
             lista = AgenciaYDispositivosBl.GetAll(ProyectoId);
@@ -32,6 +38,9 @@ namespace AdministracionMvc.Controllers
 
         public ActionResult Excel(int id)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             string rutaDelArchivo;
             string nombreDelArchivo;
 

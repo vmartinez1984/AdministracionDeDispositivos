@@ -124,6 +124,8 @@ namespace AdministracionMvc.Controllers
         [HttpPost]
         public ActionResult Edit(Dispositivo item, List<HttpPostedFileBase> Archivos)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
             try
             {
                 if (ModelState.IsValid)
@@ -191,6 +193,9 @@ namespace AdministracionMvc.Controllers
         [HttpPost]
         public ActionResult Buscar(DispositivoBusqueda item)
         {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+
             List<DispositivoItem> lista;
 
             lista = DispositivoBl.GetAll(item);

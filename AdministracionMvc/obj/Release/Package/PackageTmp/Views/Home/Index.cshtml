@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="row">
+    <div class="col-12 text-lg-center">
+        <h1 class="text-info text-center">Administración de dispositivos</h1>
+        <hr class="bg-light" />
+    </div>
+</div>
+
+<br />
+<br />
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-xl-8 col-lg-7">
+            <img src="~/img/HeaderMainHuella.jpg" class="img-fluid" />
+        </div>
+
+        <!-- Pie Chart -->
+        <div class="col-xl-4 col-lg-5">
+            <br/>
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Total de dispositivos</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4 pb-2">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        @{
+                            List<Administracion.BusinessLayer.Dto.TotalDeDispositivos> lista = ViewBag.ListaDeTotalDeDispositivos as List<Administracion.BusinessLayer.Dto.TotalDeDispositivos>;
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 0)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-primary"></i>
+                                @lista[0].Nombre
+                            </span>
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 1)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-success"></i> @lista[1].Nombre
+                            </span>
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 2)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-info"></i> @lista[2].Nombre
+                            </span>
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 3)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-secondary"></i> @lista[3].Nombre
+                            </span>
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 4)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-dark"></i> @lista[4].Nombre
+                            </span>
+                        }
+                        @if (ViewBag.ListaDeTotalDeDispositivos.Count > 5)
+                        {
+                            <span class="mr-2">
+                                <i class="fas fa-circle text-gray-100"></i> @lista[5].Nombre
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+@section Scripts{
+    <script>
+        var nombres = [];
+        var totales = [];
+        @foreach (var item in lista)
+        {
+            @:nombres.push("@item.Nombre");
+            @:totales.push(@item.Total);
+        }
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: nombres,
+                datasets: [{
+                    data: totales,
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#858796', '#5a5c69','#f8f9fc'],
+                    //hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: false
+                },
+                cutoutPercentage: 80,
+            },
+        });
+    </script>
+}
