@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vmartinez\\source\\repos\\AdministracionDeDispositivos\\Administracion\\Administracion.csproj",
+      "projectUniqueName": "D:\\Proyectos\\Net\\AdministracionDeDispositivos\\Administracion\\Administracion.csproj",
       "projectName": "Administracion",
-      "projectPath": "C:\\Users\\vmartinez\\source\\repos\\AdministracionDeDispositivos\\Administracion\\Administracion.csproj",
+      "projectPath": "D:\\Proyectos\\Net\\AdministracionDeDispositivos\\Administracion\\Administracion.csproj",
       "packagesPath": "C:\\Users\\vmartinez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vmartinez\\source\\repos\\AdministracionDeDispositivos\\Administracion\\obj\\",
+      "outputPath": "D:\\Proyectos\\Net\\AdministracionDeDispositivos\\Administracion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vmartinez\\AppData\\Roaming\\NuGet\\NuGet.Config",

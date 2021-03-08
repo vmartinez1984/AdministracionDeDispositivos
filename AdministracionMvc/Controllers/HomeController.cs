@@ -61,6 +61,7 @@ namespace AdministracionMvc.Controllers
             else
             {
                 Session["Usuario"] = usuario;
+                Session["ListaDeProyectos"] = ProyectoBl.GetAll();
 
                 return RedirectToAction("Index");
             }

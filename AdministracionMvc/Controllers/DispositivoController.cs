@@ -2,6 +2,7 @@
 using Administracion.BusinessLayer.Dto;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,6 +21,22 @@ namespace AdministracionMvc.Controllers
             lista = DispositivoBl.GetAll();
 
             return View(lista);
+        }
+
+        // GET: Dispositivo
+        public ActionResult Proyecto(int? id)
+        {
+            if (Session["Usuario"] == null)
+                return RedirectToAction("Login", "Home");
+            if (id == null)
+                return RedirectToAction("Index");
+
+            List<DispositivoItem> lista;
+
+            lista = DispositivoBl.GetAll((int)id);
+            ViewBag.Proyecto = ProyectoBl.Get((int)id).Nombre;
+
+            return View("Index",lista);
         }
 
         // GET: Dispositivo/Details/5

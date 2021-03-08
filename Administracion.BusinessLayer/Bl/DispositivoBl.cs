@@ -28,6 +28,23 @@ namespace Administracion.BusinessLayer.Bl
             }
         }
 
+        public static List<DispositivoItem> GetAll(int proyectoId)
+        {
+            try
+            {
+                List<DispositivoItem> lista;
+
+                lista = GetLista(proyectoId);
+
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<DispositivoItem> GetAll(DispositivoBusqueda item)
         {
             try
@@ -111,6 +128,17 @@ namespace Administracion.BusinessLayer.Bl
             List<DispositivoItemEntity> entities;
 
             entities = DispositivoDao.GetAll();
+            lista = DispositivoMapper.GetAll(entities);
+
+            return lista;
+        }
+
+        private static List<DispositivoItem> GetLista(int proyectoId)
+        {
+            List<DispositivoItem> lista;
+            List<DispositivoItemEntity> entities;
+
+            entities = DispositivoDao.GetAllByProyecto(proyectoId);
             lista = DispositivoMapper.GetAll(entities);
 
             return lista;

@@ -46,6 +46,44 @@ namespace Administracion.DataAccessObject.DataAccesObject
             }
         }
 
+        public static List<DispositivoItemEntity> GetAllByProyecto(int proyectoId)
+        {
+            try
+            {
+                List<DispositivoItemEntity> entities;
+                string query;
+
+                query = $@"
+                SELECT 
+                    dispositivo.id,
+                    tipo_de_dispositivo.nombre      TipoDeDispositivoNombre,
+                    agencia.clave                   AgenciaClave,
+                    agencia.nombre                  AgenciaNombre,
+                    dispositivo.numero_de_serie     NumeroDeSerie,
+                    dispositivo.comentarios,
+                    estatus_del_dispositivo.nombre  EstatusDelDispositivoNombre
+                    FROM dispositivo
+                INNER JOIN tipo_de_dispositivo ON dispositivo.tipo_de_dispositivo_id = tipo_de_dispositivo.id
+                INNER JOIN agencia ON dispositivo.agencia_id = agencia.id
+                INNER JOIN estatus_del_dispositivo ON dispositivo.estatus_del_dispositivo_id = estatus_del_dispositivo.id
+                WHERE agencia.proyecto_id = {proyectoId}
+                ORDER BY dispositivo.id DESC
+                ";
+                using (var db = new MySqlConnection(Conexion.CadenaDeConexion))
+                {
+                    entities = db.Query<DispositivoItemEntity>(query).ToList();
+                }
+
+                return entities;
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public static List<DispositivoItemEntity> GetAll(int? tipoDeDispositivoId, int? estatusDelDispositivoId, int? proyectoId, int? agenciaId, string numeroDeSerie)
         {
             try

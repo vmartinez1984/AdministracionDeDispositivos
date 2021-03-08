@@ -75,6 +75,7 @@ namespace ProcesarExcel
                 EstatusDelDispositivoId = 2,
                 UsuarioId = 1
             };
+
             DispositivoDao.Add(entity);
         }
 

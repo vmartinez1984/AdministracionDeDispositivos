@@ -4,6 +4,7 @@ using Administracion.DataAccessObject.DataAccesObject;
 using Administracion.DataAccessObject.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Administracion.BusinessLayer.Bl
 {
@@ -53,6 +54,17 @@ namespace Administracion.BusinessLayer.Bl
 
                 throw;
             }
+        }
+
+        public static Proyecto Get(int id)
+        {
+            List<Proyecto> lista;
+            Proyecto proyecto;
+
+            lista = GetListaDeProyectos();
+            proyecto = lista.Where(x => x.Id == id).FirstOrDefault();
+
+            return proyecto;
         }
 
         public static void Update(Proyecto proyecto)
