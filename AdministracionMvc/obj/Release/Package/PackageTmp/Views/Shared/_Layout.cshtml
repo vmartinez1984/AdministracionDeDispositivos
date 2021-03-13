@@ -31,6 +31,9 @@
     <!-- Custom styles for this page -->
     <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/buttons.bootstrap4.min.css" rel="stylesheet"/>
+    <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/responsive.bootstrap4.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -58,6 +61,23 @@
                     <i class="fas fa-fw fa-star"></i>
                     <span>Inicio</span>
                 </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDispositivoPorProyecto"
+                   aria-expanded="true" aria-controls="collapseDispositivoPorProyecto">
+                    <i class="fas fa-fw fa-industry"></i>
+                    <span>Dispositivos x proyecto</span>
+                </a>
+                <div id="collapseDispositivoPorProyecto" class="collapse" aria-labelledby="headingDispositivoPorProyecto" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Proyectos</h6>
+                        @foreach (var item in Session["ListaDeProyectos"] as List<Administracion.BusinessLayer.Dto.Proyecto>)
+                        {
+                            <a class="collapse-item" href="~/Dispositivo/Proyecto/@item.Id">@item.Nombre</a>
+                        }
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
@@ -90,24 +110,24 @@
 
             @if (usuario != null && usuario.PerfilId == 1)
             {
-<hr class="sidebar-divider" />
- <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComponentes"
-                       aria-expanded="true" aria-controls="collapseComponentes">
-                        <i class="fas fa-fw fa-cog"></i>
-                        <span>Componentes</span>
-                    </a>
-                    <div id="collapseComponentes" class="collapse" aria-labelledby="headingComponentes" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Configuraciones:</h6>
-                            <a class="collapse-item" href="~/Proyecto">Proyectos</a>
-                            <a class="collapse-item" href="~/TipoDeAgencia">Tipos de agencia</a>
-                            <a class="collapse-item" href="~/TipoDeDispositivo">Tipos de dispositivo</a>
-                            <a class="collapse-item" href="~/EstatusDelDispositivo">Estatus del dispositivo</a>
-                        </div>
-                    </div>
-                </li>}
+        <hr class="sidebar-divider" /> <!-- Nav Item - Pages Collapse Menu -->
+                                        <li class="nav-item">
+                                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComponentes"
+                                               aria-expanded="true" aria-controls="collapseComponentes">
+                                                <i class="fas fa-fw fa-cog"></i>
+                                                <span>Componentes</span>
+                                            </a>
+                                            <div id="collapseComponentes" class="collapse" aria-labelledby="headingComponentes" data-parent="#accordionSidebar">
+                                                <div class="bg-white py-2 collapse-inner rounded">
+                                                    <h6 class="collapse-header">Configuraciones:</h6>
+                                                    <a class="collapse-item" href="~/Proyecto">Proyectos</a>
+                                                    <a class="collapse-item" href="~/TipoDeAgencia">Tipos de agencia</a>
+                                                    <a class="collapse-item" href="~/TipoDeDispositivo">Tipos de dispositivo</a>
+                                                    <a class="collapse-item" href="~/EstatusDelDispositivo">Estatus del dispositivo</a>
+                                                </div>
+                                            </div>
+                                        </li>
+}
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -116,82 +136,75 @@
             {<!-- Heading -->
                                 <div class="sidebar-heading">
                                     Interface
-                                </div>
- <!-- Nav Item - Pages Collapse Menu -->
-                                                <li class="nav-item">
-                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                                                       aria-expanded="true" aria-controls="collapseTwo">
-                                                        <i class="fas fa-fw fa-cog"></i>
-                                                        <span>Components</span>
-                                                    </a>
-                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                                                        <div class="bg-white py-2 collapse-inner rounded">
-                                                            <h6 class="collapse-header">Custom Components:</h6>
-                                                            <a class="collapse-item" href="~/home/buttons">Buttons</a>
-                                                            <a class="collapse-item" href="~/home/cards">Cards</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
- <!-- Nav Item - Utilities Collapse Menu -->
+                                </div> <!-- Nav Item - Pages Collapse Menu -->
                                                                 <li class="nav-item">
-                                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                                                                       aria-expanded="true" aria-controls="collapseUtilities">
-                                                                        <i class="fas fa-fw fa-wrench"></i>
-                                                                        <span>Utilities</span>
+                                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                                                                       aria-expanded="true" aria-controls="collapseTwo">
+                                                                        <i class="fas fa-fw fa-cog"></i>
+                                                                        <span>Components</span>
                                                                     </a>
-                                                                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                                                                         data-parent="#accordionSidebar">
+                                                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                                                                         <div class="bg-white py-2 collapse-inner rounded">
-                                                                            <h6 class="collapse-header">Custom Utilities:</h6>
-                                                                            <a class="collapse-item" href="~/home/color">Colors</a>
-                                                                            <a class="collapse-item" href="~/home/borders">Borders</a>
-                                                                            <a class="collapse-item" href="~/home/animations">Animations</a>
-                                                                            <a class="collapse-item" href="~/home/other">Other</a>
+                                                                            <h6 class="collapse-header">Custom Components:</h6>
+                                                                            <a class="collapse-item" href="~/home/buttons">Buttons</a>
+                                                                            <a class="collapse-item" href="~/home/cards">Cards</a>
                                                                         </div>
                                                                     </div>
-                                                                </li>
- <!-- Divider -->
-                                                                                <hr class="sidebar-divider">
- <!-- Heading -->
-                                                                                                <div class="sidebar-heading">
-                                                                                                    Addons
-                                                                                                </div>
- <!-- Nav Item - Pages Collapse Menu -->
-                                                                                                                <li class="nav-item">
-                                                                                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                                                                                                                       aria-expanded="true" aria-controls="collapsePages">
-                                                                                                                        <i class="fas fa-fw fa-folder"></i>
-                                                                                                                        <span>Pages</span>
-                                                                                                                    </a>
-                                                                                                                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                                                                                                                        <div class="bg-white py-2 collapse-inner rounded">
-                                                                                                                            <h6 class="collapse-header">Login Screens:</h6>
-                                                                                                                            <a class="collapse-item" href="~/home/login">Login</a>
-                                                                                                                            <a class="collapse-item" href="~/home/register">Register</a>
-                                                                                                                            <a class="collapse-item" href="~/home/ForgotPassword">Forgot Password</a>
-                                                                                                                            <div class="collapse-divider"></div>
-                                                                                                                            <h6 class="collapse-header">Other Pages:</h6>
-                                                                                                                            <a class="collapse-item" href="~/home/Page404">404 Page</a>
-                                                                                                                            <a class="collapse-item" href="~/home/PageBlank">Blank Page</a>
-                                                                                                                        </div>
-                                                                                                                    </div>
-                                                                                                                </li>
- <!-- Nav Item - Charts -->
-                                                                                                                                <li class="nav-item">
-                                                                                                                                    <a class="nav-link" href="~/home/charts">
-                                                                                                                                        <i class="fas fa-fw fa-chart-area"></i>
-                                                                                                                                        <span>Charts</span>
-                                                                                                                                    </a>
-                                                                                                                                </li>
- <!-- Nav Item - Tables -->
-                                                                                                                                                <li class="nav-item">
-                                                                                                                                                    <a class="nav-link" href="~/home/Tables">
-                                                                                                                                                        <i class="fas fa-fw fa-table"></i>
-                                                                                                                                                        <span>Tables</span>
-                                                                                                                                                    </a>
-                                                                                                                                                </li>
- <!-- Divider -->
-                                                                                                                                                                <hr class="sidebar-divider d-none d-md-block">}
+                                                                </li> <!-- Nav Item - Utilities Collapse Menu -->
+                                                                                                <li class="nav-item">
+                                                                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                                                                                                       aria-expanded="true" aria-controls="collapseUtilities">
+                                                                                                        <i class="fas fa-fw fa-wrench"></i>
+                                                                                                        <span>Utilities</span>
+                                                                                                    </a>
+                                                                                                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                                                                                                         data-parent="#accordionSidebar">
+                                                                                                        <div class="bg-white py-2 collapse-inner rounded">
+                                                                                                            <h6 class="collapse-header">Custom Utilities:</h6>
+                                                                                                            <a class="collapse-item" href="~/home/color">Colors</a>
+                                                                                                            <a class="collapse-item" href="~/home/borders">Borders</a>
+                                                                                                            <a class="collapse-item" href="~/home/animations">Animations</a>
+                                                                                                            <a class="collapse-item" href="~/home/other">Other</a>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </li> <!-- Divider -->
+                                                                                                                                <hr class="sidebar-divider"> <!-- Heading -->
+                                                                                                                                                                <div class="sidebar-heading">
+                                                                                                                                                                    Addons
+                                                                                                                                                                </div> <!-- Nav Item - Pages Collapse Menu -->
+                                                                                                                                                                                                <li class="nav-item">
+                                                                                                                                                                                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                                                                                                                                                                                                       aria-expanded="true" aria-controls="collapsePages">
+                                                                                                                                                                                                        <i class="fas fa-fw fa-folder"></i>
+                                                                                                                                                                                                        <span>Pages</span>
+                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                                                                                                                                                                                        <div class="bg-white py-2 collapse-inner rounded">
+                                                                                                                                                                                                            <h6 class="collapse-header">Login Screens:</h6>
+                                                                                                                                                                                                            <a class="collapse-item" href="~/home/login">Login</a>
+                                                                                                                                                                                                            <a class="collapse-item" href="~/home/register">Register</a>
+                                                                                                                                                                                                            <a class="collapse-item" href="~/home/ForgotPassword">Forgot Password</a>
+                                                                                                                                                                                                            <div class="collapse-divider"></div>
+                                                                                                                                                                                                            <h6 class="collapse-header">Other Pages:</h6>
+                                                                                                                                                                                                            <a class="collapse-item" href="~/home/Page404">404 Page</a>
+                                                                                                                                                                                                            <a class="collapse-item" href="~/home/PageBlank">Blank Page</a>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                </li> <!-- Nav Item - Charts -->
+                                                                                                                                                                                                                                <li class="nav-item">
+                                                                                                                                                                                                                                    <a class="nav-link" href="~/home/charts">
+                                                                                                                                                                                                                                        <i class="fas fa-fw fa-chart-area"></i>
+                                                                                                                                                                                                                                        <span>Charts</span>
+                                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                                </li> <!-- Nav Item - Tables -->
+                                                                                                                                                                                                                                                                <li class="nav-item">
+                                                                                                                                                                                                                                                                    <a class="nav-link" href="~/home/Tables">
+                                                                                                                                                                                                                                                                        <i class="fas fa-fw fa-table"></i>
+                                                                                                                                                                                                                                                                        <span>Tables</span>
+                                                                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                                                                </li> <!-- Divider -->
+                                                                                                                                                                                                                                                                                                <hr class="sidebar-divider d-none d-md-block">
+}
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -209,11 +222,10 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
+                    
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                             <i class="fa fa-bars"></i>
                         </button>
-                    </form>
 
                     <!-- Topbar Search -->
                     <!-- Topbar Navbar -->
@@ -365,8 +377,8 @@
     <script src="~/Scripts/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    @*<script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>*@
     <script src="~/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->

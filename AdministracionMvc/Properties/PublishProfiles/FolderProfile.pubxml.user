@@ -5,31 +5,32 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>D:\IIS\Dispositivos</_PublishTargetUrl>
+    <History>True|2021-03-13T00:29:46.9446484Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Administracion.BusinessLayer.dll">
-      <publishTime>03/03/2021 19:27:55</publishTime>
+      <publishTime>03/12/2021 18:29:42</publishTime>
     </File>
     <File Include="bin/Administracion.BusinessLayer.dll.config">
       <publishTime>03/01/2021 20:52:38</publishTime>
     </File>
     <File Include="bin/Administracion.BusinessLayer.pdb">
-      <publishTime>03/03/2021 19:27:55</publishTime>
+      <publishTime>03/12/2021 18:29:42</publishTime>
     </File>
     <File Include="bin/Administracion.DataAccessObject.dll">
-      <publishTime>03/03/2021 19:27:55</publishTime>
+      <publishTime>03/08/2021 21:52:18</publishTime>
     </File>
     <File Include="bin/Administracion.DataAccessObject.dll.config">
       <publishTime>02/13/2021 18:54:50</publishTime>
     </File>
     <File Include="bin/Administracion.DataAccessObject.pdb">
-      <publishTime>03/03/2021 19:27:55</publishTime>
+      <publishTime>03/08/2021 21:52:18</publishTime>
     </File>
     <File Include="bin/AdministracionMvc.dll">
-      <publishTime>03/03/2021 19:27:57</publishTime>
+      <publishTime>03/12/2021 18:29:44</publishTime>
     </File>
     <File Include="bin/AdministracionMvc.pdb">
-      <publishTime>03/03/2021 19:27:57</publishTime>
+      <publishTime>03/12/2021 18:29:44</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 17:29:20</publishTime>
@@ -274,11 +275,20 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/bootstrap.min.css.map">
       <publishTime>02/13/2021 10:44:24</publishTime>
     </File>
+    <File Include="Content/buttons.bootstrap4.min.css">
+      <publishTime>03/12/2021 18:09:35</publishTime>
+    </File>
+    <File Include="Content/dataTables.bootstrap4.min.css">
+      <publishTime>03/12/2021 18:09:35</publishTime>
+    </File>
     <File Include="Content/font-awesome.css">
       <publishTime>02/13/2021 10:46:04</publishTime>
     </File>
     <File Include="Content/font-awesome.min.css">
       <publishTime>02/13/2021 10:46:04</publishTime>
+    </File>
+    <File Include="Content/responsive.bootstrap4.min.css">
+      <publishTime>03/12/2021 18:09:35</publishTime>
     </File>
     <File Include="Content/sb-admin-2.css">
       <publishTime>03/01/2021 15:13:43</publishTime>
@@ -6146,7 +6156,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/23/2021 14:09:35</publishTime>
     </File>
     <File Include="Views/Agencia/Index.cshtml">
-      <publishTime>03/02/2021 01:42:14</publishTime>
+      <publishTime>03/12/2021 18:24:41</publishTime>
     </File>
     <File Include="Views/Dispositivo/Buscar.cshtml">
       <publishTime>03/01/2021 15:50:09</publishTime>
@@ -6164,7 +6174,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/25/2021 20:27:18</publishTime>
     </File>
     <File Include="Views/Dispositivo/Index.cshtml">
-      <publishTime>03/02/2021 01:47:13</publishTime>
+      <publishTime>03/12/2021 18:19:01</publishTime>
     </File>
     <File Include="Views/EstatusDelDispositivo/Create.cshtml">
       <publishTime>03/01/2021 10:20:03</publishTime>
@@ -6248,7 +6258,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2021 08:43:51</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>03/03/2021 18:10:23</publishTime>
+      <publishTime>03/12/2021 18:18:12</publishTime>
     </File>
     <File Include="Views/TipoDeAgencia/Create.cshtml">
       <publishTime>02/24/2021 12:09:07</publishTime>
@@ -6287,7 +6297,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/24/2021 11:48:12</publishTime>
     </File>
     <File Include="Views/Usuario/Index.cshtml">
-      <publishTime>02/24/2021 11:37:08</publishTime>
+      <publishTime>03/12/2021 18:21:32</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>02/13/2021 08:43:51</publishTime>
@@ -6296,7 +6306,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>02/13/2021 08:43:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/03/2021 19:27:58</publishTime>
+      <publishTime>03/08/2021 21:52:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

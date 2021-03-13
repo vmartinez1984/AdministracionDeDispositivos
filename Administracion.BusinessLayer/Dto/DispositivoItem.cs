@@ -9,6 +9,9 @@ namespace Administracion.BusinessLayer.Dto
         [DisplayName("Tipo de dispositivo")]
         public string TipoDeDispositivoNombre { get; set; }
 
+        [DisplayName("Clave")]
+        public string AgenciaClave { get; set; }
+
         [DisplayName("Agencia")]
         public string AgenciaNombre { get; set; }
 
